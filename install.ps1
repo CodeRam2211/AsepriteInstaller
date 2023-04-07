@@ -14,8 +14,9 @@ else
     git clone --recursive https://github.com/aseprite/aseprite.git
  
 }
-if(Test-Path $InstallDirectory+"\Ninja")
+if(!(Test-Path ($InstallDirectory+"\Ninja")))
 {
-    cd $InstallDirectory+"\Ninja"
-    git clone git://github.com/ninja-build/ninja.git
+    mkdir ($InstallDirectory+"\Ninja")
+    Set-Location ($InstallDirectory+"\Ninja")
+    git clone https://github.com/ninja-build/ninja.git
 }
